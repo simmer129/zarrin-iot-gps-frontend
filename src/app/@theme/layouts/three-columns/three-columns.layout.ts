@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./three-columns.layout.scss'],
   template: `
     <nb-layout windowMode>
-      <nb-layout-header fixed>
+      <nb-layout-header fixed style="background-color:#FF7635">
         <ngx-header></ngx-header>
       </nb-layout-header>
 

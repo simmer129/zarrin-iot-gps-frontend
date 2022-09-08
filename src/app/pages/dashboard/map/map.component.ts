@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from './marker.service';
-import { DeviceListComponent } from '../device-lists/device-list.component';
+import { DeviceListComponent} from '../device-lists/device-list.component';
+import * as zooms from '../device-lists/device-list.component';
 
 
 const iconRetinaUrl = '../../../../assets/images/nick.png';
@@ -26,7 +27,7 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements OnInit, AfterViewInit {
 
-
+  private zoomList=zooms;
   private map;
 
   private initMap(): void {
@@ -35,24 +36,28 @@ export class MapComponent implements OnInit, AfterViewInit {
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: this.zoomIn(),
+      maxZoom: 15,
       minZoom: 3,
+      zoom:this.zoomIn(),
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
     tiles.addTo(this.map);
   }
 
-  constructor(private markerService: MarkerService) { }
+  constructor(private markerService: MarkerService) {}
 
   ngAfterViewInit(): void { 
     this.initMap();
-    this.markerService.makeCapitalMarkers(this.map);
+    // this.markerService.makeCapitalMarkers(this.map);
+    this.markerService.makeCapitalCircleMarkers(this.map);
   }
-  devisesList=DeviceListComponent;
+  
   zoomIn():number{
-    return 10;
+    // console.log(zooms.sendRow)
+    return 9;
   }
 
   ngOnInit(): void { }
+  
 }

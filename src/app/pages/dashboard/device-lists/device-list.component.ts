@@ -23,8 +23,9 @@ export class DeviceListComponent{
         {row : 11, name: 'GpsHashtoumerwerwer', serial: '175re2e54654489454654464'},
       ];
 
-      sendRow(ids:any):number{
+      sendRow(ids:any):any{
         console.log("Its idsssss"+ids);
-        return this.devises[ids].row;
+        let data = this.devises[ids].row;
+        return data;
       }
 }
