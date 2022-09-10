@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from './marker.service';
-import * as zooms from '../device-lists/device-list.component';
+
 
 
 const iconRetinaUrl = '../../../../assets/images/nick.png';
@@ -26,7 +26,6 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements OnInit, AfterViewInit {
 
-  private zoomList=zooms;
   private map;
 
   private initMap(): void {

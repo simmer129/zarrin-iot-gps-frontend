@@ -49,12 +49,18 @@ import { CountryOrdersComponent } from './country-orders/country-orders.componen
 import { CountryOrdersMapComponent } from './country-orders/map/country-orders-map.component';
 import { CountryOrdersMapService } from './country-orders/map/country-orders-map.service';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MarkerService } from "./tracking-gps/map/marker.service";
+import { PopUpService } from "./tracking-gps/map/popup.service";
 import { CountryOrdersChartComponent } from './country-orders/chart/country-orders-chart.component';
 import { EarningCardComponent } from './earning-card/earning-card.component';
 import { EarningCardBackComponent } from './earning-card/back-side/earning-card-back.component';
 import { EarningPieChartComponent } from './earning-card/back-side/earning-pie-chart.component';
 import { EarningCardFrontComponent } from './earning-card/front-side/earning-card-front.component';
 import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earning-live-update-chart.component';
+import { TrackingGpsComponent } from './tracking-gps/tracking-gps.component';
+import { DeviceListComponent } from './tracking-gps/device-list/device-list.component';
+import { MapComponent } from './tracking-gps/map/map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -70,7 +76,8 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
-    LeafletModule,
+    LeafletModule.forRoot(),
+    HttpClientModule
   ],
   declarations: [
     ECommerceComponent,
@@ -105,9 +112,14 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     EarningCardBackComponent,
     EarningPieChartComponent,
     EarningLiveUpdateChartComponent,
+    TrackingGpsComponent,
+    DeviceListComponent,
+    MapComponent
   ],
   providers: [
     CountryOrdersMapService,
+    MarkerService, 
+    PopUpService
   ],
 })
 export class ECommerceModule { }

@@ -1,0 +1,15 @@
+.row{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.maps{
+    width: 75%;
+}
+
+.lists{
+    width: 25%;
+}

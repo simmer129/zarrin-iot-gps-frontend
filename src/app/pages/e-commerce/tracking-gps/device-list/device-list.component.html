@@ -1,0 +1,24 @@
+<div class="lists row">
+    <div class="col-md-6 col-lg-6 col-xxxl-12">
+      <nb-card class="list-card">
+        <nb-card-header>لیست دستگاه</nb-card-header>
+        <nb-card-body>
+          <nb-list>
+            
+            <nb-list-item *ngFor="let device of devises">
+
+             <div class="buttons-row">
+              <button nbButton [shape]="shape" class="btn" (click)="sendRow(device.row)">
+                <br>
+                {{ device.name }} 
+                <br>             
+                {{device.serial}}
+              </button>
+             </div>
+            </nb-list-item>
+          </nb-list>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  
