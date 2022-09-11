@@ -14,3 +14,13 @@
     }
   }
 }
+.cardstyle{
+    text-align: right;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+.cardstyle p{
+  text-align: right;
+}

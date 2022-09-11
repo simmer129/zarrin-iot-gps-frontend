@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { fruits } from './fruits-list';
+import { DeviceListService } from './device-list.service';
+
+
 
 @Component({
     selector : 'ngx-device-list',
@@ -8,7 +11,17 @@ import { fruits } from './fruits-list';
 })
 export class DeviceListComponent{
     fruits = fruits;
+    
+    
+   constructor(private deviceListService : DeviceListService){}
 
+   getLocaleDateFormat(){
+    let deviceing = this.deviceListService.makeLists;
+    return deviceing;
+    console.log("teeeeeeeeeeeestssss", deviceing);
+   }
+
+   
      devises: {row : number, name : string, serial : string}[]=[
         {row : 1, name: 'GpsAval', serial: '235s4qw123'},
         {row : 2, name: 'GpsDovom', serial: '925s4aw173'},

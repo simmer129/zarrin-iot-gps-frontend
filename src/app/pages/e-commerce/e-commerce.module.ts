@@ -8,6 +8,7 @@ import {
   NbIconModule,
   NbSelectModule,
   NbListModule,
+  NbActionsModule
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -77,7 +78,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgxEchartsModule,
     NgxChartsModule,
     LeafletModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NbActionsModule    
   ],
   declarations: [
     ECommerceComponent,
