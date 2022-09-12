@@ -30,13 +30,13 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39.8282, -98.5795 ],
+      center: [ 35.11, -106.58 ],
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 15,
-      minZoom: 3,
-      zoom:this.zoomIn(),
+      minZoom: 9,
+      zoom:2,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
@@ -53,7 +53,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   
   zoomIn():number{
     // console.log(zooms.sendRow)
-    return 9;
+    return 13;
   }
 
   ngOnInit(): void { }
