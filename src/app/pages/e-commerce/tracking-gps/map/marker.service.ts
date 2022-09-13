@@ -30,10 +30,18 @@ export class MarkerService {
     [35.07, -106.52],
   ];
   latens2: [number , Number][] = [
-    [35.10, -106.62],
-    [35.19, -106.87],
-    [35.07, -106.80],
-    [35.11, -106.58],
+    [36.4422, 59.4210],
+    [36.4423, 59.4210],
+    [36.4423, 59.4211],
+    [36.4423, 59.4212],
+    [36.4424, 59.4212],
+    [36.4426, 59.4216],
+    [36.4427, 59.4217],
+    [36.4424, 59.4220],
+    [36.4421, 59.4216],
+    [36.4419, 59.4213],
+    [36.4414, 59.4206],
+    [36.4411, 59.4206],
   ];
 
   latlang = 
@@ -52,13 +60,17 @@ export class MarkerService {
         const circle = L.circleMarker([lon, lat], {
           radius: MarkerService.scaledRadius(c.properties.population, maxVal),
         });
-        // const mySpline = L.spline(this.latens as [number, number][]);
-        // const mySpline1 = L.spline(this.latens2 as [number, number][]);
+        // const mySpline = L.spline(this.latens as [number, number][],{color: "black",
+        // weight: 2,
+        // smoothing: 0,});
+        // const mySpline1 = L.spline(this.latens2 as [number, number][], {color: "blue",
+        // weight: 2,
+        // smoothing: 0.1,});
         circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
         // map.addLayer(mySpline);
-        // map.addLayer(mySpline1)
+        // map.addLayer(mySpline1);
         L.polyline(this.latens as [number, number][], {color:'red', weight: 1,smoothFactor: 1}).addTo(map);
-        L.polyline(this.latens2 as [number, number][], {color:'blue', weight: 3}).addTo(map);
+        L.polyline(this.latens2 as [number, number][], {color:'blue', weight: 3, smoothFactor: 1}).addTo(map);
         circle.addTo(map);
       }
     });

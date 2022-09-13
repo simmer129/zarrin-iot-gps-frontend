@@ -61,6 +61,7 @@
     "intl": "1.2.5",
     "ionicons": "2.0.1",
     "leaflet": "1.5.1",
+    "leaflet-gps-tracker": "^1.2.1",
     "leaflet-sidebar-v2": "^3.2.3",
     "leaflet-spline": "^0.1.3",
     "nebular-icons": "1.1.0",

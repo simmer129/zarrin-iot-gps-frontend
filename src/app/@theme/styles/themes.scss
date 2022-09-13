@@ -3,34 +3,18 @@
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
 
-// @font-face {
-//   font-family: KHARAZMI;
-//   src: url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.eot');
-//   src: url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.eot?#iefix')format('embedded-opentype'),
-//        url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.woff') format('woff'),
-//        url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: KHARAZMI;
-//   src: url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.eot');
-//   src: url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.eot?#iefix') format('FontName-opentype'),
-//        url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.woff') format('woff'),
-//        url('/src/assets/skins/lightgray/fonts/iran/IRAN-Kharazmi.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
 @font-face {
-  font-family: YEKAN;
-  src: url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.eot');
-  src: url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.eot?#iefix') format('FontName-opentype'),
-       url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.woff') format('woff'),
-       url('/src/assets/skins/lightgray/fonts/tinymce.ttf') format('truetype'),
-       url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.svg?5dqoim#YEKAN') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'Yekan';
+	src:	url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.eot'); /* IE9 Compat Modes */
+	src:	url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.woff2') format('woff2'), /* Modern Browsers */
+			url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.woff') format('woff'), /* Modern Browsers */
+			url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.otf') format('opentype'), /* Open Type Font */	
+			url('/src/assets/skins/lightgray/fonts/yekan-font/Yekan.ttf') format('truetype'); /* Safari, Android, iOS */
+	font-weight: normal;
+	font-style: normal;
+	text-rendering: optimizeLegibility;
+	font-display: auto;
 }
 
 $nb-themes: nb-register-theme((
@@ -52,7 +36,7 @@ $nb-themes: nb-register-theme((
   slide-out-background: #f7f9fc,
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
   slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
-  font-family-primary: unquote('YEKAN'),
+  font-family-primary: unquote('Yekan'),
   font-family-secondary : font-family-primary, 
 ), default, default);
 
@@ -75,7 +59,7 @@ $nb-themes: nb-register-theme((
   slide-out-background: #252547,
   slide-out-shadow-color: 2px 0 3px #29157a,
   slide-out-shadow-color-rtl: -2px 0 3px #29157a,
-  font-family-primary: unquote('YEKAN'),
+  font-family-primary: unquote('Yekan'),
   font-family-secondary : font-family-primary, 
 ), cosmic, cosmic);
 
@@ -98,7 +82,7 @@ $nb-themes: nb-register-theme((
   slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
   slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
-  font-family-primary: unquote('YEKAN'),
+  font-family-primary: unquote('Yekan'),
   font-family-secondary : font-family-primary, 
 ), corporate, corporate);
 
@@ -121,6 +105,6 @@ $nb-themes: nb-register-theme((
   slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
   slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
-  font-family-primary: unquote('YEKAN'),
+  font-family-primary: unquote('Yekan'),
   font-family-secondary : font-family-primary, 
 ), dark, dark);

@@ -30,11 +30,11 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 35.11, -106.58 ],
+      center: [36.4422, 59.4210],
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 15,
+      maxZoom: 20,
       minZoom: 9,
       zoom:2,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
