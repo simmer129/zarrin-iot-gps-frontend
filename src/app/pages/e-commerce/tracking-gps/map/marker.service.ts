@@ -20,7 +20,7 @@ export class MarkerService {
   constructor(private http: HttpClient, private popupService: PopUpService, trackingService: TrackingService) {}
 
   static scaledRadius(val: number, maxVal: number): number {
-    return 20 * (val / maxVal);
+    return (val / maxVal);
   }
 
   latens: [number , Number][] = [
@@ -57,21 +57,22 @@ export class MarkerService {
       for (const c of res.features) {
         const lat = c.geometry.coordinates[0];
         const lon = c.geometry.coordinates[1];
-        const circle = L.circleMarker([lon, lat], {
-          radius: MarkerService.scaledRadius(c.properties.population, maxVal),
+        const circle = L.marker([lon, lat], {
+          // radius: MarkerService.scaledRadius(c.properties.population, maxVal),
         });
         // const mySpline = L.spline(this.latens as [number, number][],{color: "black",
         // weight: 2,
         // smoothing: 0,});
-        // const mySpline1 = L.spline(this.latens2 as [number, number][], {color: "blue",
-        // weight: 2,
-        // smoothing: 0.1,});
+        const mySpline1 = L.spline(this.latens2 as [number, number][], {color: '#FF7635',
+        weight: 1,
+        smoothing: 0.10,});
         circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
         // map.addLayer(mySpline);
-        // map.addLayer(mySpline1);
-        L.polyline(this.latens as [number, number][], {color:'red', weight: 1,smoothFactor: 1}).addTo(map);
-        L.polyline(this.latens2 as [number, number][], {color:'blue', weight: 3, smoothFactor: 1}).addTo(map);
+        map.addLayer(mySpline1);
         circle.addTo(map);
+        // L.polyline(this.latens as [number, number][], {color:'red', weight: 1,smoothFactor: 1}).addTo(map);
+        // L.polyline(this.latens2 as [number, number][], {color:'#FF7635', weight: 1, smoothFactor: 0.1}).addTo(map);
+        
       }
     });
   }

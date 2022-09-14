@@ -4,14 +4,13 @@ import { MarkerService } from './marker.service';
 
 
 
-const iconRetinaUrl = '../../../../assets/images/nick.png';
-const iconUrl = '../../../../assets/images/nick.png';
-const shadowUrl = '../../../../assets/images/nick.png';
+const iconRetinaUrl = '../../../../../assets/map/marker.svg';
+const iconUrl = '../../../../../assets/map/marker.svg';
+const shadowUrl = '../../../../../assets/map/marker.svg';
 const iconDefault = L.icon({
   iconRetinaUrl,
   iconUrl,
-  shadowUrl,
-  iconSize: [25, 41],
+  iconSize: [35, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   tooltipAnchor: [16, -28],
@@ -35,8 +34,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 20,
-      minZoom: 9,
-      zoom:2,
+      minZoom: 15,
+      zoom:9,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 

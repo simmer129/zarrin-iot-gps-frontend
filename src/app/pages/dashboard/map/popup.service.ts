@@ -27,7 +27,7 @@ export class PopUpService {
     border: 2px solid #FF7635;
     ' onclick="location.href='../../e-commerce/tracking-gps'" >
          ردیابی
-      </button>`+
-    `</div>`
+      </button>`+ 
+    `</div>` 
   }
 }
