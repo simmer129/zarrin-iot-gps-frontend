@@ -64,7 +64,7 @@ export class MarkerService {
         // weight: 2,
         // smoothing: 0,});
         const mySpline1 = L.spline(this.latens2 as [number, number][], {color: '#FF7635',
-        weight: 1,
+        weight: 3,
         smoothing: 0.10,});
         circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
         // map.addLayer(mySpline);

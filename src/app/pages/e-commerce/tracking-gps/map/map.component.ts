@@ -4,9 +4,9 @@ import { MarkerService } from './marker.service';
 
 
 
-const iconRetinaUrl = '../../../../../assets/map/marker.svg';
-const iconUrl = '../../../../../assets/map/marker.svg';
-const shadowUrl = '../../../../../assets/map/marker.svg';
+const iconRetinaUrl = '../../../../../assets/map/marker4.svg';
+const iconUrl = '../../../../../assets/map/marker4.svg';
+//cerate icon address https://loading.io/asset/600392
 const iconDefault = L.icon({
   iconRetinaUrl,
   iconUrl,
@@ -33,9 +33,9 @@ export class MapComponent implements OnInit, AfterViewInit {
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 20,
+      maxZoom: 19,
       minZoom: 15,
-      zoom:9,
+      zoom:19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
