@@ -1,30 +1,34 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import * as L from "leaflet";
 import "leaflet-spline";
 import { PopUpService } from "./popup.service";
 import { TrackingService } from "./tracking.service";
+import { TrackListService } from "./trackList.service";
 
 
 @Injectable({
   providedIn: "root",
 })
-export class MarkerService {
+export class MarkerService implements OnInit{
   
 
   capitals: string = "/assets/data/usa-capitals.geojson";
   trackingService: any;
   multipolyLineOptions: any;
     
+  
 
-  constructor(private http: HttpClient, private popupService: PopUpService, trackingService: TrackingService) {}
+  constructor(private http: HttpClient, private popupService: PopUpService, trackingService: TrackingService, private trackListService: TrackListService) {}
 
   static scaledRadius(val: number, maxVal: number): number {
     return (val / maxVal);
   }
 
+  trackList=[];
+  
   latens: [number , Number][] = [
-    [35.11, -106.58],
+    [35.111, -106.58],
     [35.13, -106.48],
     [35.07, -106.52],
     [35.07, -106.52],
@@ -60,6 +64,7 @@ export class MarkerService {
         const circle = L.marker([lon, lat], {
           // radius: MarkerService.scaledRadius(c.properties.population, maxVal),
         });
+        console.log("track list is :" + this.trackList);
         // const mySpline = L.spline(this.latens as [number, number][],{color: "black",
         // weight: 2,
         // smoothing: 0,});
@@ -74,6 +79,13 @@ export class MarkerService {
         // L.polyline(this.latens2 as [number, number][], {color:'#FF7635', weight: 1, smoothFactor: 0.1}).addTo(map);
         
       }
+    });
+  }
+
+  ngOnInit() {
+    this.trackListService.sendGetRequest().subscribe((data: any[]) => {
+      this.trackList.push(data);
+      console.log("track list is :" + this.trackList);
     });
   }
 }

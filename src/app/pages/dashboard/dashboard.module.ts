@@ -33,6 +33,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { MarkerService } from "./map/marker.service";
 import { MapComponent } from "./map/map.component";
 import { PopUpService } from "./map/popup.service";
+import { DataService } from './map/data.service';
+import { DataListService } from './device-lists/data-list.service';
 
 @NgModule({
   imports: [
@@ -69,6 +71,6 @@ import { PopUpService } from "./map/popup.service";
     DeviceListComponent,
     MapComponent,
   ],
-  providers: [MarkerService, PopUpService],
+  providers: [MarkerService, PopUpService, DataService, DataListService],
 })
 export class DashboardModule {}

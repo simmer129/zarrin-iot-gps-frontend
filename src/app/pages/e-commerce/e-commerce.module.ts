@@ -62,6 +62,8 @@ import { TrackingGpsComponent } from './tracking-gps/tracking-gps.component';
 import { DeviceListComponent } from './tracking-gps/device-list/device-list.component';
 import { MapComponent } from './tracking-gps/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataListService } from './tracking-gps/device-list/dataList.service';
+import { TrackListService } from './tracking-gps/map/trackList.service'
 
 @NgModule({
   imports: [
@@ -121,7 +123,9 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     CountryOrdersMapService,
     MarkerService, 
-    PopUpService
+    PopUpService,
+    DataListService,
+    TrackListService
   ],
 })
 export class ECommerceModule { }

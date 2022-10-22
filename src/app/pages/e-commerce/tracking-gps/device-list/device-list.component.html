@@ -5,7 +5,7 @@
         <nb-card-body>
           <nb-list>
             
-            <nb-list-item *ngFor="let device of devises">
+            <nb-list-item *ngFor="let device of deviceList">
 
              <div class="buttons-row">
               <button nbButton [shape]="shape" class="btn" (click)="sendRow(device.row)">

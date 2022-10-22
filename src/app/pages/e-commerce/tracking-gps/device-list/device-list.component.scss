@@ -2,7 +2,7 @@
 
 @include nb-install-component() {
   .list-card {
-    width: max-content;
+    width: 235px;
     nb-card-header {
       border-bottom: none;
       align-items: center;
@@ -22,7 +22,7 @@
   }
 
   button[nbButton] {
-    font-size: small;
+    font-size: 14px;
     background-color: #fff;
     border-color: #fff;
     align-items: center;
