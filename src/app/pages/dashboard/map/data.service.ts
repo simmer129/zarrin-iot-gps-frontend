@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  private REST_API_SERVER = "http://localhost:3000/device-log/id/c9d64c6f-e79e-4a14-afdf-e484916036c4";
+  private REST_API_SERVER = "http://localhost:3000/device-log/id/ae8bb06d-c796-44ce-9429-8d02cbfe14c4";
   private DEVICE_GET_API = "http://localhost:3000/device/serial/123456";
 
   constructor(private httpClient: HttpClient) { }
@@ -16,6 +16,8 @@ export class DataService {
   }
 
   public sendDeviceGetRequest(){
-    return this.httpClient.get<any>(this.DEVICE_GET_API);
-  }
+      return this.httpClient.get<any>(this.DEVICE_GET_API);
+  }  
 }
+
+

@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import { MarkerService } from './marker.service';
 import { DataService } from './data.service';
 import * as zooms from '../device-lists/device-list.component';
-
+import { Subscription } from 'rxjs';
 
 const iconRetinaUrl = '../../../../assets/images/nick.png';
 const iconUrl = '../../../../assets/images/nick.png';
@@ -26,13 +26,14 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit {
-
-  private zoomList=zooms;
+  
+  interval:any;
+  private zoomList = zooms;
   private map;
-
+  private updateSubscription: Subscription;
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 36.4422, 59.4210 ],
+      center: [36.4422, 59.4210],
       zoom: 14
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,25 +49,44 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   products = [];
 
-  constructor(private markerService: MarkerService, private dataService: DataService) {}
+  constructor(private markerService: MarkerService, private dataService: DataService) { }
 
-  ngAfterViewInit(): void { 
+  ngAfterViewInit(): void {
     this.initMap();
     this.markerService.makeCapitalMarkers(this.map);
     // this.markerService.makeCapitalCircleMarkers(this.map);
+    
   }
-  
-  zoomIn():number{
+
+  zoomIn(): number {
     // console.log(zooms.sendRow)
     return 9;
   }
 
-  ngOnInit() { 
-
-    this.dataService.sendGetRequest().subscribe((data: any[])=>{
-      // console.log("data is : "+JSON.stringify(data));
+  ngOnInit() {
+    
+    console.log("rerere")
+    this.dataService.sendGetRequest().subscribe((data: any[]) => {
+      console.log("data is : "+JSON.stringify(data));
       this.products = data;
-    })  
+    });
+    this.interval = setInterval(()=>{
+      this.map.off();
+      this.map.remove();
+      this.ngAfterViewInit();
+      console.log(":-)");
+      // this.map.removeLayer(this);
+      // this.markerService.makeCapitalMarkers(this.map);
+
+    },10000);
+  };
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
-  
+
+  removeMarker() {
+    const marker = this;
+    this.map.removeLayer(marker);
+  }
 }
